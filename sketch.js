@@ -1,6 +1,7 @@
-var PLAY = 1;
-var END = 0;
-var gameState = PLAY;
+
+
+
+
 
 var trex, trex_running, trex_collided;
 var ground, invisibleGround, groundImage;
@@ -8,7 +9,7 @@ var ground, invisibleGround, groundImage;
 var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
 
-var score;
+
 
 
 function preload(){
@@ -45,12 +46,11 @@ function setup() {
   invisibleGround.visible = false;
   
   //create Obstacle and Cloud Groups
-  obstaclesGroup = createGroup();
-  cloudsGroup = createGroup();
+ 
   
   console.log("Hello" + 5);
   
-  score = 0;
+  
 }
 
 function draw() {
@@ -84,20 +84,16 @@ function draw() {
     //spawn obstacles on the ground
     spawnObstacles();
     
-    if(obstaclesGroup.isTouching(trex)){
-        gameState = END;
-    }
-  }
-   else if (gameState === END) {
-      ground.velocityX = 0;
-     
-     obstaclesGroup.setVelocityXEach(0);
-     cloudsGroup.setVelocityXEach(0);
-   }
-  
+   
+    
+    
+    
+    
+    
+    
  
   //stop trex from falling down
-  trex.collide(invisibleGround);
+ 
   
   
   
@@ -128,11 +124,11 @@ function spawnObstacles(){
     }
    
     //assign scale and lifetime to the obstacle           
-    obstacle.scale = 0.5;
-    obstacle.lifetime = 300;
+   
    
    //add each obstacle to the group
-    obstaclesGroup.add(obstacle);
+   
+   
  }
 }
 
@@ -146,7 +142,7 @@ function spawnClouds() {
     cloud.velocityX = -3;
     
      //assign lifetime to the variable
-    cloud.lifetime = 134;
+   
     
     //adjust the depth
     cloud.depth = trex.depth;
